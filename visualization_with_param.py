@@ -19,7 +19,7 @@ df["Net import/export"] *= -1.0
 source = ColumnDataSource(data = vhelp.get_one_average_day_from_df(df, df.index[0], 0, average_over, multipliers))
 
 # Creating the main plot
-fig = figure(x_axis_type='datetime', y_range=(0,12000), width=900, height=600)#, xformatter=DatetimeTickFormatter("hourmin"))
+fig = figure(x_axis_type='datetime', y_range=(0,16000), width=900, height=600)
 fig.grid.minor_grid_line_color = '#eeeeee'
 stacked_area = fig.varea_stack(stackers=names, x='start_time', color=var.to_sum_colors, 
                                legend_label=names, source=source) 
@@ -38,7 +38,7 @@ for i in range(len(names)):
 current_day = 0
 def update_date():
     global current_day
-    current_day += 1
+    current_day = slider.value + 1
     slider.value = current_day
     if current_day == 365:
         current_day = 0
@@ -73,9 +73,12 @@ height=30,
 
 Text = Div(
     text="""
-        <p>Click the start button to start the animation of Finalnds electricity production and consumption in year 2022. By changing the values in slides, you can experiment, how Finland's energy production total would be affected by converting energy production types to other types. <p>""",
+        <p>Click the start button to start the animation of Finalnds electricity production and consumption in year 2022. The black line tells the amount of electricity consumed. </p>
+        <br>
+        <p> By changing the values in slides, you can experiment, how Finland's energy production total could be achived with different combination of different enrgy sources. The number after names the name tells the ratio compared to the 2022 situation. For example 1.4 means, that there is 40% more production. </p>
+        <br>""",
         width= 600,
-        height = 70
+        height = 120,
 )
 
 ## Register Callbacks
