@@ -4,12 +4,14 @@ import numpy as np
 import helper_functions.variables as var
 
 def get_one_day_from_df(df, first_day, current_day_number):
+    """Returns only the rows corresponding to the given day from the dataframe"""
     start_day = first_day + timedelta(days = current_day_number%365)
     next_day = start_day + timedelta(days = 1)
 
     return df[(df.index >= start_day) & (df.index < next_day)]
 
 def get_one_average_day_from_df(df: pd.DataFrame, first_date: datetime, current_day_number: datetime, average_over: int, multipliers: np.array(int)) -> pd.DataFrame:
+    """Return rows for one day. The rows have been formed by averaging the values over several days."""
     if average_over < 2:
         return get_one_day_from_df(df, first_date, current_day_number)
 
@@ -26,11 +28,3 @@ def get_one_average_day_from_df(df: pd.DataFrame, first_date: datetime, current_
         this_day = this_day.combine(next_day, lambda a, b: a+b)
 
     return pd.DataFrame(this_day/average_over) * multipliers
-
-# returns Dict{"angle" : list[float]}
-def get_angle_df(master_df: pd.DataFrame) -> dict():
-    angles_df = pd.DataFrame((master_df*np.array([1.0]*9)).sum(axis=0)[var.to_sum])
-    angles_df["angle"] = (angles_df/angles_df.sum())*  2* np.pi
-    angles_df.columns = ["Value", "angle"]
-    angles_df["color"] = var.to_sum_colors
-    return angles_df

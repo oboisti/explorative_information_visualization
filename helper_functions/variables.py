@@ -12,7 +12,6 @@ to_sum = ["Nuclear production", "Industrial Cogeneration", "Cogenation of distri
           "Hydro production", "Wind production",  "Net import/export", "Reserve power plants and small-scale production"]
 
 to_sum_colors = ["DarkGreen", "IndianRed", "SandyBrown", "SlateBlue", "Khaki","darkmagenta", "Tomato"]
-#["#7fc97f", "#f0027f", "#bf5b17", "#386cb0", "#ffff99", "#beaed4", "#fdc086"]
 
 variable_ids = {"Wind_3min" : 181, 
                 "Reserve and small production" : 205,
