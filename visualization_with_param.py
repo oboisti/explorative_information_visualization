@@ -40,8 +40,8 @@ def update_date():
     global current_day
     current_day = slider.value + 1
     slider.value = current_day
-    if current_day == 365:
-        current_day = 0
+    if current_day >= 365:
+        slider.value = 0
 
 def update_multipliers(attr, old, new):
     global multipliers
