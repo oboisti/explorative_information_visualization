@@ -46,4 +46,4 @@ COPY . .
 EXPOSE 5006
 
 # Run the application.
-CMD bokeh serve --show visualization_with_param.py
+CMD bokeh serve --show app.py

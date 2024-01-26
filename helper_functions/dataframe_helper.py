@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import pandas as pd
 import numpy as np
-import helper_functions.variables as var
+import helper_functions.constants as c
 
 def get_one_day_from_df(df, first_day, current_day_number):
     """Returns only the rows corresponding to the given day from the dataframe"""

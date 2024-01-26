@@ -1,8 +1,8 @@
-import helper_functions.variables as var
+import helper_functions.constants as c
 import numpy as np
 import pandas as pd
 
-variable_ids = var.variable_ids
+variable_ids = c.VARIABLE_IDS
 
 months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
@@ -15,7 +15,7 @@ def request_url(start_day, start_month, end_day, end_month, variable_id):
     return url
 
 def get_whole_year(value_id, file_name):
-    """Helper function for importing data from online"""
+    """Helper function for downloading data from Fingrid's online service."""
     dfs = []
     for i in range(len(months)):
         dfs.append(pd.read_csv(request_url(1, i+1,months[i],i+1, value_id), parse_dates=[0,1], index_col=0))
@@ -24,10 +24,9 @@ def get_whole_year(value_id, file_name):
     df.to_csv("./data/" + file_name + ".csv", sep='\t', encoding='utf-8')
     return df
 
-# The
 def get_master_df():
     """Returns the dataframe with all data from the folder data."""
-    data_conversion = var.data_conversion
+    data_conversion = c.DATA_CONVERSION_NAMES
     dfs = []
 
     for item in data_conversion:
