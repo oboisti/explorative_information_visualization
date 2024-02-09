@@ -2,7 +2,7 @@
 
 This is the visualization tool created for course CS-E4450 - Explorative Information Visualization. 
 
-![Visualization of the tool as a gif](https://github.com/oboisti/explorative_information_visualization/tree/main/visualization_gif.gif)
+![Visualization of the tool as a gif](https://github.com/oboisti/explorative_information_visualization/blob/main/visualization_gif.gif)
 
 content of this README
 * Motivation
