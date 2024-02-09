@@ -4,7 +4,7 @@ This is the visualization tool created for course CS-E4450 - Explorative Informa
 
 ![Visualization of the tool as a gif](https://github.com/oboisti/explorative_information_visualization/blob/main/visualization_gif.gif)
 
-content of this README
+The content of this README
 * Motivation
 * How was this project done
 * How to run this locally
@@ -46,6 +46,19 @@ therefore decreases the development time
 * Numpy was crucial as fast enough calculations were needed to process the data 
 while animating
 * Data is saved as CSV files, in case in future I want to update the data to a more recent one
+* Docker was used for allowing the course project reviewers easy way of running the project locally
+
+
+Data is imported from Fingrid's [open data service](https://data.fingrid.fi/en). The functions 
+for importing data can be found in _helper_functions/data_importing_ and the importing process 
+itself from the notebook TO BE ADDED
+
+The file _app.py_ contains the running application. To improve readability the app was formed as 
+a class with different parts of the visualization process separated into functions. To improve 
+readability even further, functionalities relating to calculations on data frames were separated 
+into _helper_functions/dataframe_helper.py_ and elements containing text into _helper_functions/page_texts.py_. 
+The file helper_functions/constants.py contains the data column names, addresses, and colors so 
+that all files import them from the same source and they can be easily changed centrally when needed. 
 
 
 ## How to run this locally
@@ -54,5 +67,5 @@ To run this project on your local machine do the following steps:
 2. Make sure you have the latest docker desktop downloaded to your computer and that it is running
 3. Open in the command line (or other similar tool) the root folder of this project
 4. run the code snippet `docker compose up --build` to build the solution and start the docker container. Depending on your computer this can take several minutes.
-5. open the location http://localhost:5006/visualization_with_param in your web browser to see and interact with the visualization
+5. open the location http://localhost:5006/visualization_with_param in your web browser to see and interact with the visualization. This can also take some time.
 6. To close the visualization, open another command line (or similar tool) in this project root folder and run `docker compose down`
